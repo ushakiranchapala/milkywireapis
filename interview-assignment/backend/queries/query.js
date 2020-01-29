@@ -129,10 +129,10 @@ const createPost = (req, res)=> {
         	})
         	
         	.then(post=>{
-        		res.send(post);
+        		res.status(400).send(post)
         		
         	})
-        	.catch(err=> res.status(400).json('error'));
+        	
 }
 
 
