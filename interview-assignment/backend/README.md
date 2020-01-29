@@ -27,16 +27,15 @@ After Run `npm run dev` to start nodemon with index.js, api runs on http://local
 Update a post:
 
 Request - HTTP request
-PUT http://localhost:3001/api/posts/update/{id}
-Request body
+PUT http://localhost:3001/api/posts/update/{id} .Example http://localhost:3001/api/posts/update/3.
+Request body:
 In the request body, supply data with the following structure:
 
 {
   "description": "we have hulk",
   "image": "https://picsum.photos/id/1000/5626/3635",
   "author" : "ironman"
- 
- }
+  }
  
 | property name | value | description |
 | :---         |     :---:      |  :---:    |
