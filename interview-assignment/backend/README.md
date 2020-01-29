@@ -58,6 +58,7 @@ In the request body, supply data with the following structure:
   "impacter_id": "4"
   
  }
+ 
 | property name | value | description |
 | :---         |     :---:      |  :---:    |
 | description   | String    | Description of post |
