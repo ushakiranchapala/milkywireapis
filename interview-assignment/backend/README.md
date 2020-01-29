@@ -13,4 +13,55 @@ When you are done you can run `docker-compose down` to take down the database.
 # Dev
 Run `npm run dev` to start nodemon with index.js
 
+Api End points:
+After Run `npm run dev` to start nodemon with index.js, api runs on http://localhost:3000. Below you can find a list of all endpoints. 
 
+| Method | HTTP Request | Description |
+| :---         |     :---:      |          ---: |
+| getPosts  | GET  http://localhost:3001/api/posts and GET /api/posts | Get all posts   |
+| getPostsById    | GET /api/posts/id/{post id}     | Get a post by id.   example:/api/posts/2 |
+| getImapctersById    | GET /api/impacters/{id}    | Get all posts for a specific impacter. example:/api/1   |
+| getPostsByName    | GET /api/posts/name/{impacter name}     | GET all posts by imapcter name. example:/api/posts/name/mollit ad|		
+| deletePost    | GET /api/posts/delete/{id}    | delete post  by post id. example:/api/posts/delete/3|
+
+Update a post:
+
+Request - HTTP request
+PUT http://localhost:3001/api/posts/update/{id}
+Request body
+In the request body, supply data with the following structure:
+
+{
+  "description": "we have hulk",
+  "image": "https://picsum.photos/id/1000/5626/3635",
+  "author" : "ironman"
+ 
+ }
+ 
+| property name | value | description |
+| :---         |     :---:      |  :---:    |
+| description   | String    | Description of post |
+| image    | string    | Image url of post |
+| author    | string    | Author of Post | 
+
+Create a post:
+
+Request - HTTP request
+Post http://localhost:3001/api/posts/create
+Request body
+In the request body, supply data with the following structure:
+
+{
+  "description": "we have hulk",
+  "image": "https://picsum.photos/id/1000/5626/3635",
+  "author" : "ironman",
+  "impacter_id": "4"
+  
+ }
+ 
+| property name | value | description |
+| :---         |     :---:      |  :---:    |
+| description   | String    | Description of post |
+| image    | string    | Image url of post |
+| author    | string    | Author of Post | 
+| Impacter_id    | string    | Id of the Impacter who is posting. | 
