@@ -69,10 +69,10 @@ In the request body, supply data with the following structure:
 Test APIS:
 
 Install postgresql. 
-You install postgresql using brew by following link:
+You can install postgresql using brew by following link:
 https://gist.github.com/ibraheem4/ce5ccd3e4d7a65589ce84f2a3b7c23a3
 
-If your using your own test database change name of database in knexfile.js or update 'test' object with your database details.
+If you are using your own test database change the name of the test database in knexfile.js or update 'test' object with your database details.
 
 1. Run `npm i`
 
