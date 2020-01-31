@@ -74,13 +74,7 @@ const updatePost = (req,res) => {
 
 	const { description, image, author } = req.body;
 	
-/*const details = {
-    	width : '2002',
-    	height: '3003',
-    	pictureId : '1000'
-    }
-	const	image = `https://picsum.photos/id/${details.pictureId}/${details.width}/${details.height}`;
-	*/
+
 	db('co_posts')
   			.where({post_id : id})
     		.update({

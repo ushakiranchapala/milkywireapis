@@ -33,9 +33,6 @@ describe('Imapacters posts api', ()=>  {
   });
 
   it('GET /posts/id', function(done) {
-    
-
-    
     request(app)
       .get('/api/posts/id/1')
       .set('Accept', 'application/json')
