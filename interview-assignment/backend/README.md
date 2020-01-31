@@ -65,3 +65,20 @@ In the request body, supply data with the following structure:
 | image    | string    | Image url of post |
 | author    | string    | Author of Post | 
 | Impacter_id    | string    | Id of the Impacter who is posting. | 
+
+
+Test APIS:
+
+Install postgresql. 
+You install postgresql using brew by following link:
+https://gist.github.com/ibraheem4/ce5ccd3e4d7a65589ce84f2a3b7c23a3
+
+If your using your own test database change name of database in knexfile.js or update 'test' object with your database details.
+
+1. Run `npm i`
+
+2. Run `npm test`
+
+
+
+

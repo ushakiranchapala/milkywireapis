@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "(dropdb --if-exists impacter_posts_test && createdb impacter_posts_test) && NODE_ENV=test mocha --timeout 50000",
     "init-db": "knex migrate:latest && knex seed:run",
     "reset-db": "knex migrate:rollback && knex migrate:latest && knex seed:run"
   },
@@ -16,9 +16,13 @@
     "express": "^4.17.1",
     "knex": "^0.20.2",
     "lorem-ipsum": "^2.0.3",
-    "pg": "^7.12.1"
+    "pg": "^7.12.1",
+    "superagent": "^5.2.1"
   },
   "devDependencies": {
-    "nodemon": "^1.18.10"
+    "chai": "^4.2.0",
+    "mocha": "^7.0.1",
+    "nodemon": "^1.18.10",
+    "supertest": "^4.0.2"
   }
 }

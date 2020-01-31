@@ -1,13 +1,16 @@
 const knex = require('knex');
-const knexfile = require('../knexfile');
 
-const db = knex(knexfile);
+
+const db = require('../db/knex'); 
+
+
 
 
 //Get all posts
 const getPosts = (req, res)=> {
 	db('co_impacters').then(data=>{
 		res.status(200).json(data);
+
 	})
 	  .catch(err=> res.status(400).json('error'));
 }
@@ -50,10 +53,10 @@ const getPostsByName = (req,res) => {
 	id = data[0].impacter_id;
 	db.select('*').from('co_posts').where({impacter_id :id }).then(post => {
 		res.status(200).json(post);
-
+    //console.log(post);
 	})
 	})
-      .catch(err=> res.status(400).json('error'));
+      .catch(err=> res.status(400).json(err));
 
 	}
 // delete post
@@ -129,7 +132,7 @@ const createPost = (req, res)=> {
         	})
         	
         	.then(post=>{
-        		res.status(400).send(post)
+        		res.status(200).send(post)
         		
         	})
         	
