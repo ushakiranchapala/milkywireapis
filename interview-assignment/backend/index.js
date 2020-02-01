@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 const bodyParser = require('body-parser');
-
+const multerConfig = require("./config/multer");
 const db = require('./db/knex'); // the connection!
 const apidb = require('./queries/query');
 //const knexfile = require('./knexfile')
@@ -20,11 +20,13 @@ app.use(
 
 app.get('/api/posts', apidb.getPosts);
 
+app.post('/api/posts/image',multerConfig.saveToUploads, apidb.getImage)
+
 app.get('/api/posts/id/:id', apidb.getPostsById);
 app.get('/api/impacters/:id', apidb.getImpactersById);
 app.get('/api/posts/name/:name', apidb.getPostsByName);
 app.put('/api/posts/update/:id', apidb.updatePost);
-app.post('/api/posts/create', apidb.createPost)
+app.post('/api/posts/create',multerConfig.saveToUploads, apidb.createPost)
 app.delete('/api/posts/delete/:id',apidb.deletePost);
 
 

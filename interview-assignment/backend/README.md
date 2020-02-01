@@ -43,20 +43,22 @@ In the request body, supply data with the following structure:
 | image    | string    | Image url of post |
 | author    | string    | Author of Post | 
 
-Create a post:
+Create a post by uploding image:
 
 Request - HTTP request
 Post http://localhost:3001/api/posts/create
 Request body
-In the request body, supply data with the following structure:
-
+In the request give the below form data, supply data with the following parameters and values:
 {
-  "description": "we have hulk",
-  "image": "https://picsum.photos/id/1000/5626/3635",
+
+  "description" : "we have hulk",
   "author" : "ironman",
   "impacter_id": "4"
-  
- }
+  "file": "upload path path"
+}
+
+CURL Command format : 
+curl -v -F key1=value1 -F upload=@localfilename URL
  
 | property name | value | description |
 | :---         |     :---:      |  :---:    |
@@ -64,6 +66,7 @@ In the request body, supply data with the following structure:
 | image    | string    | Image url of post |
 | author    | string    | Author of Post | 
 | Impacter_id    | string    | Id of the Impacter who is posting. | 
+| file   | file   | file you want to uplaod from computer |
 
 
 Test APIS:

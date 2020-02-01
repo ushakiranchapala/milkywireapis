@@ -2,13 +2,21 @@ const knex = require('knex');
 
 
 const db = require('../db/knex'); 
+const multerConfig = require("../config/multer");
 
 
+// get image
 
+const getImage =  (req, res) => {
+	console.log(req.file.path);
+	console.log(req.file);
+	return res.json("file uploaded successfully");
+
+}
 
 //Get all posts
 const getPosts = (req, res)=> {
-	db('co_impacters').then(data=>{
+	db('co_posts').then(data=>{
 		res.status(200).json(data);
 
 	})
@@ -101,9 +109,11 @@ const updatePost = (req,res) => {
   	
 
 }
-//user can create a new post by uploading an imageurl to the API
+//user can create a new post by uploading an image to the API. for now im saving image to local server.
 const createPost = (req, res)=> {
 	const { description, image, author, impacter_id } = req.body;
+	const nameimage = req.file.path;
+	//console.log(req.file.path);
 	db('co_posts')
 			.returning('*')
     		.insert({
@@ -113,7 +123,7 @@ const createPost = (req, res)=> {
        		data: {
             	media: [
               	{
-               		image:  image,
+               		image:  nameimage,
                 	
                 	version: "2019-03-14",
                 	description: author
@@ -142,5 +152,6 @@ module.exports = {
 	getPostsByName,
 	deletePost,
 	updatePost,
-	createPost
+	createPost,
+	getImage
 }
